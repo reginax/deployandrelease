@@ -10,7 +10,7 @@ cd $WORKINGDIR
 rm -rf $WORKINGDIR/Tools
 rm -rf $WORKINGDIR/$SOLRDIR
 # install solr
-#curl -O http://mirror.symnds.com/software/Apache/lucene/solr/4.10.3/$SOLRVERSION.tgz
+curl -O http://mirror.symnds.com/software/Apache/lucene/solr/4.10.3/$SOLRVERSION.tgz
 tar -xzvf $SOLRVERSION.tgz
 mv $SOLRVERSION $WORKINGDIR/$SOLRDIR/
 cd $WORKINGDIR/$SOLRDIR/
