@@ -1,12 +1,34 @@
-# untested!
-if [ -d solr4 ];
-then
-   echo "solr4 directory exists, please remove (e.g. rm -rf solr4/), then try again."
-   exit
+# mostly untested!
+set -e
+if [ $# -lt 3 ]; then
+  echo 1>&2 "$0: call with three arguments:"
+  echo 1>&2 "$0 toolsdir solr4dir solrversion"
+  echo 1>&2 "$0 e.g."
+  echo 1>&2 "$0 ~/Tools solr4 solr-4.10.3"
+  echo 1>&2 "(toolsdir and solrversion.tgz must exist; solr4dir must not)"
+  exit 2
 fi
-tar xzf solr-4.10.3.tgz
-mv solr-4.10.0 solr4
-cd solr4
+TOOLS=$1
+SOLR4=$2
+TAR=$3
+if [ ! -d $TOOLS];
+then
+   echo "Tools directory $TOOLS not found. Please clone from GitHub and provide it as the first argument."
+   exit 1
+fi
+if [ -d $SOLR4 ];
+then
+   echo "$SOLR4 directory exists, please remove (e.g. rm -rf solr4/), then try again."
+   exit 1
+fi
+if [ ! -e $SOLRTAR ];
+then
+   echo "$SOLR4 directory exists, please remove (e.g. rm -rf solr4/), then try again."
+   exit 1
+fi
+tar xzf $TAR.tgz
+mv $TAR $SOLR4
+cd $SOLR4
 mv example ucb
 
 cd ucb/multicore/
@@ -34,17 +56,15 @@ cp -r ../example-schemaless/solr/collection1 bampfa/metadata
 #cp -r ../example-DIH/solr/solr ucjeps/metadata
 #cp -r ../example-DIH/solr/solr cinefiles/metadata
 #cp -r ../example-DIH/solr/solr bampfa/metadata
-#
-cp ~/solr.xml .
+
+cp $TOOLS/datasources/ucb/multicore/solr.xml .
 perl -i -pe 's/collection1/pahma-metadata/' pahma/metadata/core.properties
 perl -i -pe 's/collection1/botgarden-metadata/' botgarden/metadata/core.properties
 perl -i -pe 's/collection1/botgarden-propations/' botgarden/propagations/core.properties
 perl -i -pe 's/collection1/ucjeps-metadata/' ucjeps/metadata/core.properties
 perl -i -pe 's/collection1/cinefiles-metadata/' cinefiles/metadata/core.properties
 perl -i -pe 's/collection1/bampfa-metadata/' bampfa/metadata/core.properties
-#
-# <schema name="example core zero" version="1.1">
-# <schema name="example-schemaless" version="1.5">
+
 perl -i -pe 's/example-schemaless/pahma-metadata/' pahma/metadata/conf/schema.xml
 perl -i -pe 's/example-schemaless/botgarden-metadata/' botgarden/metadata/conf/schema.xml
 perl -i -pe 's/example-schemaless/botgarden-propations/' botgarden/propagations/conf/schema.xml
