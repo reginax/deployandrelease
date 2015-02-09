@@ -5,12 +5,15 @@
 #
 # if you:
 #
-# 1. configure the Solr multicore deployment using installMulti
+# 1. Install Solr
 #
+# ./installSolr.py
+#
+# 2. configure the Solr multicore deployment using configureMultiCoreSolr.sh 
 # 
-# 2. download all the current nightly dumps from dev.cspace
+# 3. download all the current nightly dumps from dev.cspace
 #
-# scp dev.cspace.berkeley.edu:/home/developers/*/4solr*.gz
+# ./scp4solr.py
 #
 # 3. gunzip them
 #

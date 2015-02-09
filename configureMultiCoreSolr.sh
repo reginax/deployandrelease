@@ -72,10 +72,10 @@ perl -i -pe 's/example-schemaless/ucjeps-metadata/' ucjeps/metadata/conf/schema.
 perl -i -pe 's/example-schemaless/cinefiles-metadata/' cinefiles/metadata/conf/schema.xml
 perl -i -pe 's/example-schemaless/bampfa-metadata/' bampfa/metadata/conf/schema.xml
 
+cp $TOOLS/datasources/ucb/multicore/solr.xml .
 cp  ~/solrconfig.xml pahma/metadata/conf
 cp  ~/solrconfig.xml botgarden/metadata/conf
 cp  ~/solrconfig.xml botgarden/propagations/conf
 cp  ~/solrconfig.xml ucjeps/metadata/conf
 cp  ~/solrconfig.xml cinefiles/metadata/conf
 cp  ~/solrconfig.xml bampfa/metadata
-
