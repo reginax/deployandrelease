@@ -24,3 +24,28 @@ Caveats:
 * You should read and understand these scripts before using them!
 * Mostly these expect the "standard" RHEL VM environment running at IS&T/RIT
 * But they will mostly run on your Mac, perhaps with some tweaking.
+
+Suggestions for use:
+
+#
+# 1. Install Solr and Python Solr bindings
+#
+# ./installSolr.sh
+# ./installsolrpy.sh
+#
+# 2. configure the Solr multicore deployment using configureMultiCoreSolr.sh
+#
+# ./configureMultiCoreSolr.sh
+#
+# 3. download all the current nightly dumps from dev.cspace
+#
+# ./scp4solr.py
+#
+# gunzip *.gz
+#
+# 4 execute this script
+#
+# ./loadAllDatasourcees.sh
+#
+# ...you have all the cores installed and running.
+
