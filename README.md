@@ -46,26 +46,25 @@ Caveats:
 
 Suggestions for getting Solr going (this will get the UCB Solr cores up and running; you'll need to get the ETL datafiles, which will require credentials or a request to the UCB CSpace team):
 
- 1. Install Solr and Python Solr bindings
- 
+1. Install Solr and Python Solr bindings
+
  ```
 ./installSolr.sh
 ./installsolrpy.sh
 ```
- 2. configure the Solr multicore deployment using configureMultiCoreSolr.sh, start Solr4
- 
+2. Configure the Solr multicore deployment using configureMultiCoreSolr.sh, start Solr4
+
 ```
 ./configureMultiCoreSolr.sh
 cd ....        # wherever you installed Solr and the multicores
 ./startSolr.sh # you did copy this script from this deployandrelease directory, didn't you?
 ```
- 3. download all the current nightly dumps from dev.cspace
+3. Download all the current nightly dumps from dev.cspace
 ```
 ./scp4solr.py
 gunzip *.gz
 ```
- 4. execute the following script to load them. NB ...you have to have all the cores installed and running!
- 
+4. Execute the following script to load them. NB ...you have to have all the cores installed and running!
 ```
 ./loadAllDatasourcees.sh
 ```
