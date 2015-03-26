@@ -19,7 +19,7 @@ fi
 TOOLS=$1
 SOLR4=$2
 TAR=$3
-if [ ! -d $TOOLS];
+if [ ! -d $TOOLS ];
 then
    echo "Tools directory $TOOLS not found. Please clone from GitHub and provide it as the first argument."
    exit 1
@@ -34,7 +34,7 @@ then
    echo "$SOLR4 directory exists, please remove (e.g. rm -rf solr4/), then try again."
    exit 1
 fi
-tar xzf $TAR
+tar xzf $TAR.tgz
 mv $TAR $SOLR4
 cd $SOLR4
 mv example ucb
@@ -75,7 +75,7 @@ perl -i -pe 's/collection1/bampfa-metadata/' bampfa/metadata/core.properties
 
 #perl -i -pe 's/example-schemaless/pahma-metadata/' pahma/metadata/conf/schema.xml
 #perl -i -pe 's/example-schemaless/botgarden-metadata/' botgarden/metadata/conf/schema.xml
-#perl -i -pe 's/example-schemaless/botgarden-propations/' botgarden/propagations/conf/schema.xml
+#perl -i -pe 's/example-schemaless/botgarden-propagations/' botgarden/propagations/conf/schema.xml
 #perl -i -pe 's/example-schemaless/ucjeps-metadata/' ucjeps/metadata/conf/schema.xml
 #perl -i -pe 's/example-schemaless/cinefiles-metadata/' cinefiles/metadata/conf/schema.xml
 #perl -i -pe 's/example-schemaless/bampfa-metadata/' bampfa/metadata/conf/schema.xml
