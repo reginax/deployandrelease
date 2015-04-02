@@ -94,10 +94,11 @@ Suggestions for "local installs", e.g. on your Macbook
 #
 # ~/deployandrelease/configureMultiCoreSolr.sh ~/Tools solr4 solr-4.10.4
 #
-# 3. Install the startup script and start solr
+# 3. Install the startup script and start solr (this script puts the process into the background)
 #
 # cd ~/solr4/ucb
 # cp ~/deployandrelease/startSolr.sh
+# ./startSolr.sh
 # 
 # 4. download all the current nightly dumps from dev.cspace
 #
