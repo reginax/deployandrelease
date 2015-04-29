@@ -35,7 +35,7 @@
 #
 curl http://localhost:8983/solr/ucjeps-metadata/update --data '<delete><query>*:*</query></delete>' -H 'Content-type:text/xml; charset=utf-8'
 curl http://localhost:8983/solr/ucjeps-metadata/update --data '<commit/>' -H 'Content-type:text/xml; charset=utf-8'
-curl 'http://localhost:8983/solr/ucjeps-metadata/update/csv?commit=true&header=true&trim=true&separator=%09&f.previousdeterminations_ss.split=true&f.previousdeterminations_ss.separator=%7C&f.associatedtaxa_ss.split=true&f.associatedtaxa_ss.separator=%7C&f.typeassertions_ss.split=true&f.typeassertions_ss.separator=%7C&f.othernumber_ss.split=true&f.othernumber_ss.separator=%7C&f.blobs_ss.split=true&f.blobs_ss.separator=,&encapsulator=\' --data-binary @4solr.ucjeps.metadata.csv -H 'Content-type:text/plain; charset=utf-8'
+curl 'http://localhost:8983/solr/ucjeps-metadata/update/csv?commit=true&header=true&trim=true&separator=%09&f.collector_ss.split=true&f.collector_ss.separator=%7C&f.previousdeterminations_ss.split=true&f.previousdeterminations_ss.separator=%7C&f.otherlocalities_ss.split=true&f.otherlocalities_ss.separator=%7C&f.associatedtaxa_ss.split=true&f.associatedtaxa_ss.separator=%7C&f.typeassertions_ss.split=true&f.typeassertions_ss.separator=%7C&f.othernumber_ss.split=true&f.othernumber_ss.separator=%7C&f.blobs_ss.split=true&f.blobs_ss.separator=,&encapsulator=\' --data-binary @4solr.ucjeps.metadata.csv -H 'Content-type:text/plain; charset=utf-8'
 #
 curl http://localhost:8983/solr/pahma-metadata/update --data '<delete><query>*:*</query></delete>' -H 'Content-type:text/xml; charset=utf-8'
 curl http://localhost:8983/solr/pahma-metadata/update --data '<commit/>' -H 'Content-type:text/xml; charset=utf-8'

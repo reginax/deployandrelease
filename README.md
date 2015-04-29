@@ -97,7 +97,7 @@ Suggestions for "local installs", e.g. on your Macbook
 # 3. Install the startup script and start solr (this script puts the process into the background)
 #
 # cd ~/solr4/ucb
-# cp ~/deployandrelease/startSolr.sh
+# cp ~/deployandrelease/startSolr.sh .
 # ./startSolr.sh
 # 
 # 4. download all the current nightly dumps from dev.cspace
@@ -107,11 +107,11 @@ Suggestions for "local installs", e.g. on your Macbook
 # mkdir ~/4solr
 # cd ~/4solr
 #
-# ~/deployandrelease/scp4solr.py
+# ~/deployandrelease/scp4solr.sh
 #
 # 4 execute the script to load all the .csv dump files (take 15 mins or so...some biggish datasources!)
 #
-# ~/deployandrelease/loadAllDatasourcees.sh
+# ~/deployandrelease/loadAllDatasources.sh
 #
 
 Install solr4 as a service on UCB VMs
