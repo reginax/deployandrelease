@@ -90,8 +90,6 @@ cp $TOOLS/datasources/ucb/multicore/pahma/metadata/conf/solrconfig.xml pahma/met
 cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/solrconfig.xml botgarden/propagations/conf/
 cp $TOOLS/datasources/ucb/multicore/ucjeps/metadata/conf/solrconfig.xml ucjeps/metadata/conf/
 
-cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/solrconfig.xml pahma/media/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/solrconfig.xml bampfa/media/conf/
 
 cp $TOOLS/datasources/ucb/multicore/botgarden/metadata/conf/schema.xml botgarden/metadata/conf/
 cp $TOOLS/datasources/ucb/multicore/cinefiles/metadata/conf/schema.xml cinefiles/metadata/conf/
@@ -101,6 +99,10 @@ cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/schema.xml botga
 cp $TOOLS/datasources/ucb/multicore/ucjeps/metadata/conf/schema.xml ucjeps/metadata/conf/
 
 # these two cores are special: they use the solr "managed-schema"
+cp -r ../example-schemaless/solr/collection1 pahma/media
+cp -r ../example-schemaless/solr/collection1 bampfa/media
+perl -i -pe 's/collection1/pahma-media/' pahma/media/core.properties
+perl -i -pe 's/collection1/bampfa-media/' bampfa/media/core.properties
 cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/solrconfig.xml pahma/media/conf/
 cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/solrconfig.xml bampfa/media/conf/
 cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/schema.xml pahma/media/conf/
