@@ -2,23 +2,25 @@
 set -e
 if [ $# -lt 3 ]; then
   echo 1>&2 ""
+  echo 1>&2 "First, cd to the directory in which you want solr4 installed. E.g cd ~ or cd /usr/local/share"
+  echo 1>&2 ""
   echo 1>&2 "call with three arguments:"
   echo 1>&2 "$0 toolsdir solr4dir solrversion"
   echo 1>&2 ""
   echo 1>&2 "e.g."
-  echo 1>&2 "$0  ~/Tools solr4 solr-4.10.3"
+  echo 1>&2 "$0  ~/Tools solr4 4.10.4"
   echo 1>&2 ""
   echo 1>&2 ""
   echo 1>&2 "- path to Tool git repo"
   echo 1>&2 "- directory to create with all Solr goodies in it"
-  echo 1>&2 "- solr4 download"
-  echo 1>&2 "(toolsdir and solrversion.tgz must exist; solr4dir must not)"
+  echo 1>&2 "- solr4 version (e.g. 4.10.4)"
+  echo 1>&2 "(toolsdir must exist and be current; solr4dir must not)"
   echo 1>&2 ""
   exit 2
 fi
 TOOLS=$1
 SOLR4=$2
-TAR=$3
+SOLRVERSION=$3
 if [ ! -d $TOOLS ];
 then
    echo "Tools directory $TOOLS not found. Please clone from GitHub and provide it as the first argument."
@@ -29,13 +31,14 @@ then
    echo "$SOLR4 directory exists, please remove (e.g. rm -rf solr4/), then try again."
    exit 1
 fi
-if [ ! -e $SOLRTAR ];
+if [ ! -e solr-$SOLRVERSION.tgz ];
 then
-   echo "$SOLR4 directory exists, please remove (e.g. rm -rf solr4/), then try again."
-   exit 1
+   echo "solr-$SOLRVERSION.tgz does not exist, attempting to download"
+   # install solr
+   curl -O http://mirror.symnds.com/software/Apache/lucene/solr/$SOLRVERSION/solr-$SOLRVERSION.tgz
 fi
-tar xzf $TAR.tgz
-mv $TAR $SOLR4
+tar xzf solr-$SOLRVERSION.tgz
+mv solr-$SOLRVERSION $SOLR4
 cd $SOLR4
 mv example ucb
 
@@ -87,9 +90,26 @@ cp $TOOLS/datasources/ucb/multicore/pahma/metadata/conf/solrconfig.xml pahma/met
 cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/solrconfig.xml botgarden/propagations/conf/
 cp $TOOLS/datasources/ucb/multicore/ucjeps/metadata/conf/solrconfig.xml ucjeps/metadata/conf/
 
+cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/solrconfig.xml pahma/media/conf/
+cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/solrconfig.xml bampfa/media/conf/
+
 cp $TOOLS/datasources/ucb/multicore/botgarden/metadata/conf/schema.xml botgarden/metadata/conf/
 cp $TOOLS/datasources/ucb/multicore/cinefiles/metadata/conf/schema.xml cinefiles/metadata/conf/
 cp $TOOLS/datasources/ucb/multicore/bampfa/metadata/conf/schema.xml bampfa/metadata/conf/
 cp $TOOLS/datasources/ucb/multicore/pahma/metadata/conf/schema.xml pahma/metadata/conf/
 cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/schema.xml botgarden/propagations/conf/
 cp $TOOLS/datasources/ucb/multicore/ucjeps/metadata/conf/schema.xml ucjeps/metadata/conf/
+
+# these two cores are special: they use the solr "managed-schema"
+cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/solrconfig.xml pahma/media/conf/
+cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/solrconfig.xml bampfa/media/conf/
+cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/schema.xml pahma/media/conf/
+cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/schema.xml bampfa/media/conf/
+
+echo "*** Multicore solr4 installed for UCB deployments! ****"
+echo "You can now start solr4. A good way to do this for development purposes is to use
+echo "the script made for the purpose, in the deployandrelease repo:
+echo "cd solr4/ucb"
+echo "ucb $ cp ~/deployandrelease/startSolr.sh ."
+echo "ucb $ ./startSolr.sh" 
+

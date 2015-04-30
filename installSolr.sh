@@ -1,7 +1,7 @@
 #!/bin/bash -x
-# sets up a single core solr, using solr 5.0.0
+# sets up a single core solr, using solr 4.10.4
 # experimental! caveat utilizator!
-SOLRVERSION=solr-5.0.0
+SOLRVERSION=solr-4.10.4
 SOLRDIR=solr4
 TENANT=$1
 WORKINGDIR=$2
@@ -10,7 +10,7 @@ cd $WORKINGDIR
 rm -rf $WORKINGDIR/Tools
 rm -rf $WORKINGDIR/$SOLRDIR
 # install solr
-curl -O http://mirror.symnds.com/software/Apache/lucene/solr/5.0.0/$SOLRVERSION.tgz
+curl -O http://mirror.symnds.com/software/Apache/lucene/solr/$SOLRVERSION/$SOLRVERSION.tgz
 tar -xzvf $SOLRVERSION.tgz
 mv $SOLRVERSION $WORKINGDIR/$SOLRDIR/
 cd $WORKINGDIR/$SOLRDIR/
