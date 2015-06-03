@@ -90,7 +90,6 @@ cp $TOOLS/datasources/ucb/multicore/pahma/metadata/conf/solrconfig.xml pahma/met
 cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/solrconfig.xml botgarden/propagations/conf/
 cp $TOOLS/datasources/ucb/multicore/ucjeps/metadata/conf/solrconfig.xml ucjeps/metadata/conf/
 
-
 cp $TOOLS/datasources/ucb/multicore/botgarden/metadata/conf/schema.xml botgarden/metadata/conf/
 cp $TOOLS/datasources/ucb/multicore/cinefiles/metadata/conf/schema.xml cinefiles/metadata/conf/
 cp $TOOLS/datasources/ucb/multicore/bampfa/metadata/conf/schema.xml bampfa/metadata/conf/
@@ -109,9 +108,8 @@ cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/schema.xml pahma/media/conf
 cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/schema.xml bampfa/media/conf/
 
 echo "*** Multicore solr4 installed for UCB deployments! ****"
-echo "You can now start solr4. A good way to do this for development purposes is to use
-echo "the script made for the purpose, in the deployandrelease repo:
+echo "You can now start solr4. A good way to do this for development purposes is to use"
+echo "the script made for the purpose, in the deployandrelease repo:"
 echo "cd solr4/ucb"
-echo "ucb $ cp ~/deployandrelease/startSolr.sh ."
-echo "ucb $ ./startSolr.sh" 
-
+echo "cp ~/deployandrelease/startSolr.sh ."
+echo "./startSolr.sh"
