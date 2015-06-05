@@ -1,3 +1,4 @@
+#!/usr/bin/env bash
 PWD=`pwd`
 if [ $# -ne 3 ]; then
     echo
@@ -7,7 +8,7 @@ if [ $# -ne 3 ]; then
     echo "e.g. sudo ./installProject.sh pahma pahmaNV pahma_4.0_1 > install.log 2>&1"
     echo
     echo "this will install pahma_project branch pahma_4.0-1 from github.com/cspace-deployment"
-    echo "into pahmaNV and configure it to run, except for Apache conf.d"
+    echo "into /var/www/pahmaNV and configure it to run, except for Apache conf.d"
     echo "================================================================================================="
     exit
 fi
@@ -19,9 +20,9 @@ if [ -e "$2" ]; then
     exit
 fi
 
-git clone https://github.com/cspace-deployment/$1_project $2
+git clone https://github.com/cspace-deployment/$1_project /var/www/$2
 
-cd $2/
+cd /var/www/$2/
 git pull origin $3 -v
 git checkout $3
 
