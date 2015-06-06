@@ -1,0 +1,66 @@
+# This file is user-editable using "sudoedit FILENAME".
+
+#ServerAdmin user@berkeley.edu
+DocumentRoot /var/www/html
+
+#ProxyPass /sample/ ajp://localhost:8009/sample/
+
+
+# pahma
+
+Alias /pahma_static /var/www/pahma/static_root
+
+WSGIDaemonProcess pahma_wsgi python-path=/var/www/pahma:/home/app_webapps/venv/lib/python2.6/site-packages user=app_webapps group=app_webapps
+WSGIProcessGroup pahma_wsgi
+
+WSGIScriptAlias /pahma /var/www/pahma/cspace_django_site/wsgi.py process-group=pahma_wsgi
+
+<Directory "/home/app_webapps/pahma">
+    Order deny,allow
+    Allow from all
+</Directory>
+
+
+# bampfa
+   
+Alias /bampfa_static /var/www/bampfa/static_root
+
+WSGIDaemonProcess bampfa_wsgi python-path=/var/www/bampfa:/home/app_webapps/venv/lib/python2.6/site-packages user=app_webapps group=app_webapps
+WSGIProcessGroup bampfa_wsgi
+
+WSGIScriptAlias /bampfa /var/www/bampfa/cspace_django_site/wsgi.py process-group=bampfa_wsgi
+
+<Directory "/home/app_webapps/bampfa">
+    Order deny,allow
+    Allow from all
+</Directory>
+
+
+# botgarden
+   
+Alias /botgarden_static /var/www/botgarden/static_root
+
+WSGIDaemonProcess botgarden_wsgi python-path=/var/www/botgarden:/home/app_webapps/venv/lib/python2.6/site-packages user=app_webapps group=app_webapps
+WSGIProcessGroup botgarden_wsgi
+
+WSGIScriptAlias /botgarden /var/www/botgarden/cspace_django_site/wsgi.py process-group=botgarden_wsgi
+
+<Directory "/var/www/botgarden">
+    Order deny,allow
+    Allow from all
+</Directory>
+
+
+# ucjeps
+   
+Alias /ucjeps_static /var/www/ucjeps/static_root
+
+WSGIDaemonProcess ucjeps_wsgi python-path=/var/www/ucjeps:/home/app_webapps/venv/lib/python2.6/site-packages user=app_webapps group=app_webapps
+WSGIProcessGroup ucjeps_wsgi
+
+WSGIScriptAlias /ucjeps /var/www/ucjeps/cspace_django_site/wsgi.py process-group=ucjeps_wsgi
+
+<Directory "/home/app_webapps/ucjeps">
+    Order deny,allow
+    Allow from all
+</Directory>
