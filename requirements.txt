@@ -1,0 +1,16 @@
+pip install Django==1.5
+pip install Pillow
+pip install PyGreSQL
+pip install psycopg2
+pip install Pygments
+pip install solrpy
+pip install six
+pip install django-extensions
+pip install django-filter
+pip install django-positions
+pip install django-tables2
+pip install django-tables2-reports
+pip install djangorestframework
+pip install itsdangerous
+pip install numpy
+pip install requests
