@@ -1,6 +1,8 @@
-#!/bin/bash -x
+#!/bin/bash
 # sets up a single core solr, using solr 4.10.4
 # experimental! caveat utilizator!
+echo "please just look at this script, don't execute it ... at least for now!"
+exit
 SOLRVERSION=solr-4.10.4
 SOLRDIR=solr4
 TENANT=$1

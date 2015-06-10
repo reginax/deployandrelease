@@ -28,6 +28,7 @@ for Solr4:
 
 To install solr4 on UCB VMs, from scratch, or to completely update the solr datastores,the following seems to work:
 
+```bash
 # stop solr4 if it is running...assumes solr4 is already installed as a service
 sudo service solr4 stop
 # we install solr and its datastore here
@@ -59,7 +60,7 @@ scp dev.cspace.berkeley.edu:/home/developers/*/4solr*.gz .
 # uncompress them and load them
 gunzip 4solr*.gz
 nohup loadAllDatasourcees.sh &
-
+```
 
 Caveats:
 
@@ -69,22 +70,16 @@ Caveats:
 
 Suggestions for "local installs", e.g. on your Macbook
 
+```bash
 #
-# 1. Install Solr and Python Solr bindings
+# 1. Install Python Solr bindings
 #
 # cd ~
-# ~/deployandrelease/installSolr.sh
 # ~/deployandrelease/installsolrpy.sh
 #
 # 2. configure the Solr multicore deployment using configureMultiCoreSolr.sh
 #
-# NB: takes 3 arguments!
-#
-# a. assumes you have already downloaded the solr4 tar file, e.g.
-#
-# curl -O http://mirror.cc.columbia.edu/pub/software/apache/lucene/solr/4.10.4/solr-4.10.4.tgz
-#
-# b. assuming you have cloned the Tools repo...
+# NB: takes 3 arguments! Assumes you have cloned the Tools repo...use the full path please
 #
 # cd ~
 # git clone https://github.com/cspace-deployment/Tools
@@ -92,7 +87,7 @@ Suggestions for "local installs", e.g. on your Macbook
 # ...you can run this script 
 # which unpacks solr, makes the UCB cores in multicore, copies the customized files needed
 #
-# ~/deployandrelease/configureMultiCoreSolr.sh ~/Tools solr4 solr-4.10.4
+# ~/deployandrelease/configureMultiCoreSolr.sh /User/myhomedir/Tools solr4 solr-4.10.4
 #
 # 3. Install the startup script and start solr (this script puts the process into the background)
 #
@@ -113,9 +108,11 @@ Suggestions for "local installs", e.g. on your Macbook
 #
 # ~/deployandrelease/loadAllDatasources.sh
 #
+```
 
 Install solr4 as a service on UCB VMs
 
+```bash
 # install the solr4.service script in /etc/init.d
 sudo cp solr4.service /etc/init.d/solr4
 # check that the script works
@@ -129,3 +126,4 @@ ls -ltr /usr/local/share/solr4/ucb/logs/
 # e.g.
 less  /usr/local/share/solr4/ucb/logs/solr.log 
 less  /usr/local/share/solr4/ucb/logs/2015_03_21-085800651.start.log 
+```
