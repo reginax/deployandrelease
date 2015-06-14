@@ -19,8 +19,8 @@ for Django projects:
 
 for Solr4:
 
-* installSolr.sh -- fetch solr4 tarball and deploys it
-* installsolrpy.sh -- tried to install the solrpy module so Python can talk to Solr
+* installSolr.sh -- fetch solr4 tarball and deploys it NB: THIS SCRIPT IS REFERENCE ONLY! IT DEPLOYS A SINGLE CORE!
+* installsolrpy.sh -- tries to install the solrpy module so Python can talk to Solr. ONLY NEEDED FOR UCB REDHAT!
 * installDatasource.sh -- NOT EXECUTABLE: example commands for installing a single core datasource
 * configureMultiCoreSolr.sh -- installs and configures the "standard" multicore configuration
 
@@ -72,7 +72,7 @@ Suggestions for "local installs", e.g. on your Macbook
 
 ```bash
 #
-# 1. Install Python Solr bindings
+# 1. Install Python Solr bindings (ONLY IF YOU HAVE NOT DONE SO ALREADY!)
 #
 # cd ~
 # ~/deployandrelease/installsolrpy.sh
@@ -87,7 +87,7 @@ Suggestions for "local installs", e.g. on your Macbook
 # ...you can run this script 
 # which unpacks solr, makes the UCB cores in multicore, copies the customized files needed
 #
-# ~/deployandrelease/configureMultiCoreSolr.sh /User/myhomedir/Tools solr4 solr-4.10.4
+# ~/deployandrelease/configureMultiCoreSolr.sh /User/myhomedir/Tools solr4 4.10.4
 #
 # 3. Install the startup script and start solr (this script puts the process into the background)
 #

@@ -1,0 +1,9 @@
+ls /var/log/solr/
+ls /var/log/solr4/
+#/etc/init.d/solr4 status
+sudo service solr4 status
+sudo service solr4 start
+ps aux | grep java
+ls -ltr /usr/local/share/solr4/ucb/logs/
+less  /usr/local/share/solr4/ucb/logs/solr.log 
+less  /usr/local/share/solr4/ucb/logs/2015_03_21-085800651.start.log 
