@@ -91,21 +91,33 @@ perl -i -pe 's/collection1/botgarden-propations/' botgarden/propagations/core.pr
 #perl -i -pe 's/example-schemaless/cinefiles-public/' cinefiles/public/conf/schema.xml
 #perl -i -pe 's/example-schemaless/bampfa-public/' bampfa/public/conf/schema.xml
 
-cp $TOOLS/datasources/ucb/multicore/botgarden.public.solrconfig.xml botgarden/public/conf/
-cp $TOOLS/datasources/ucb/multicore/cinefiles.public.solrconfig.xml cinefiles/public/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa.public.solrconfig.xml bampfa/public/conf/
-cp $TOOLS/datasources/ucb/multicore/pahma.public.solrconfig.xml pahma/public/conf/
-cp $TOOLS/datasources/ucb/multicore/ucjeps.public.solrconfig.xml ucjeps/public/conf/
+cp $TOOLS/datasources/ucb/multicore/botgarden.public.solrconfig.xml botgarden/public/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/cinefiles.public.solrconfig.xml cinefiles/public/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/bampfa.public.solrconfig.xml bampfa/public/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/pahma.public.solrconfig.xml pahma/public/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/ucjeps.public.solrconfig.xml ucjeps/public/conf/solrconfig.xml
 
-cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/solrconfig.xml botgarden/propagations/conf/
+cp $TOOLS/datasources/ucb/multicore/botgarden.public.schema.xml botgarden/public/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/cinefiles.public.schema.xml cinefiles/public/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/bampfa.public.schema.xml bampfa/public/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/pahma.public.schema.xml pahma/public/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/ucjeps.public.schema.xml ucjeps/public/conf/schema.xml
 
-cp $TOOLS/datasources/ucb/multicore/botgarden.internal.schema.xml botgarden/internal/conf/
-cp $TOOLS/datasources/ucb/multicore/cinefiles.internal.schema.xml cinefiles/internal/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa.internal.schema.xml bampfa/internal/conf/
-cp $TOOLS/datasources/ucb/multicore/pahma.internal.schema.xml pahma/internal/conf/
-cp $TOOLS/datasources/ucb/multicore/ucjeps.internal.schema.xml ucjeps/internal/conf/
+cp $TOOLS/datasources/ucb/multicore/botgarden.propagations.schema.xml botgarden/propagations/conf/schema.xml
 
-cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/schema.xml botgarden/propagations/conf/
+cp $TOOLS/datasources/ucb/multicore/botgarden.internal.solrconfig.xml botgarden/internal/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/cinefiles.internal.solrconfig.xml cinefiles/internal/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/bampfa.internal.solrconfig.xml bampfa/internal/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/pahma.internal.solrconfig.xml pahma/internal/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/ucjeps.internal.solrconfig.xml ucjeps/internal/conf/solrconfig.xml
+
+cp $TOOLS/datasources/ucb/multicore/botgarden.internal.schema.xml botgarden/internal/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/cinefiles.internal.schema.xml cinefiles/internal/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/bampfa.internal.schema.xml bampfa/internal/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/pahma.internal.schema.xml pahma/internal/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/ucjeps.internal.schema.xml ucjeps/internal/conf/schema.xml
+
+cp $TOOLS/datasources/ucb/multicore/botgarden.propagations.solrconfig.xml botgarden/propagations/conf/solrconfig.xml
 
 # these cores are special: they use the solr "managed-schema"
 cp -r ../example-schemaless/solr/collection1 pahma/media
@@ -118,11 +130,11 @@ perl -i -pe 's/collection1/bampfa-media/' bampfa/media/core.properties
 perl -i -pe 's/collection1/cinefiles-media/' cinefiles/media/core.properties
 perl -i -pe 's/collection1/ucjeps-media/' ucjeps/media/core.properties
 perl -i -pe 's/collection1/botgarden-media/' botgarden/media/core.properties
-cp $TOOLS/datasources/ucb/multicore/pahma.media.solrconfig.xml pahma/media/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa.media.solrconfig.xml bampfa/media/conf/
-cp $TOOLS/datasources/ucb/multicore/cinefiles.media.solrconfig.xml cinefiles/media/conf/
-cp $TOOLS/datasources/ucb/multicore/ucjeps.media.solrconfig.xml ucjeps/media/conf/
-cp $TOOLS/datasources/ucb/multicore/botgarden.media.solrconfig.xml botgarden/media/conf/
+cp $TOOLS/datasources/ucb/multicore/pahma.media.solrconfig.xml pahma/media/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/bampfa.media.solrconfig.xml bampfa/media/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/cinefiles.media.solrconfig.xml cinefiles/media/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/ucjeps.media.solrconfig.xml ucjeps/media/conf/solrconfig.xml
+cp $TOOLS/datasources/ucb/multicore/botgarden.media.solrconfig.xml botgarden/media/conf/solrconfig.xml
 
 echo "*** Multicore solr4 installed for UCB deployments! ****"
 echo "You can now start solr4. A good way to do this for development purposes is to use"
