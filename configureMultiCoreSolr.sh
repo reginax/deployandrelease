@@ -54,58 +54,75 @@ mkdir ucjeps
 mkdir cinefiles
 mkdir bampfa
 
-cp -r ../example-schemaless/solr/collection1 pahma/metadata
-cp -r ../example-schemaless/solr/collection1 botgarden/metadata
-cp -r ../example-schemaless/solr/collection1 botgarden/propagations
-cp -r ../example-schemaless/solr/collection1 ucjeps/metadata
-cp -r ../example-schemaless/solr/collection1 cinefiles/metadata
-cp -r ../example-schemaless/solr/collection1 bampfa/metadata
+cp -r ../example-schemaless/solr/collection1 pahma/public
+cp -r ../example-schemaless/solr/collection1 botgarden/public
+cp -r ../example-schemaless/solr/collection1 ucjeps/public
+cp -r ../example-schemaless/solr/collection1 cinefiles/public
+cp -r ../example-schemaless/solr/collection1 bampfa/public
 
-#cp -r ../example-DIH/solr/solr pahma/metadata
-#cp -r ../example-DIH/solr/solr botgarden/metadata
-#cp -r ../example-DIH/solr/solr botgarden/propagations
-#cp -r ../example-DIH/solr/solr ucjeps/metadata
-#cp -r ../example-DIH/solr/solr cinefiles/metadata
-#cp -r ../example-DIH/solr/solr bampfa/metadata
+cp -r ../example-schemaless/solr/collection1 pahma/internal
+cp -r ../example-schemaless/solr/collection1 botgarden/internal
+cp -r ../example-schemaless/solr/collection1 ucjeps/internal
+cp -r ../example-schemaless/solr/collection1 cinefiles/internal
+cp -r ../example-schemaless/solr/collection1 bampfa/internal
+
+cp -r ../example-schemaless/solr/collection1 botgarden/propagations
 
 cp $TOOLS/datasources/ucb/multicore/solr.xml .
-perl -i -pe 's/collection1/pahma-metadata/' pahma/metadata/core.properties
-perl -i -pe 's/collection1/botgarden-metadata/' botgarden/metadata/core.properties
+
+perl -i -pe 's/collection1/pahma-public/' pahma/public/core.properties
+perl -i -pe 's/collection1/botgarden-public/' botgarden/public/core.properties
+perl -i -pe 's/collection1/ucjeps-public/' ucjeps/public/core.properties
+perl -i -pe 's/collection1/cinefiles-public/' cinefiles/public/core.properties
+perl -i -pe 's/collection1/bampfa-public/' bampfa/public/core.properties
+
+perl -i -pe 's/collection1/pahma-internal/' pahma/internal/core.properties
+perl -i -pe 's/collection1/botgarden-internal/' botgarden/internal/core.properties
+perl -i -pe 's/collection1/ucjeps-internal/' ucjeps/internal/core.properties
+perl -i -pe 's/collection1/cinefiles-internal/' cinefiles/internal/core.properties
+perl -i -pe 's/collection1/bampfa-internal/' bampfa/internal/core.properties
+
 perl -i -pe 's/collection1/botgarden-propations/' botgarden/propagations/core.properties
-perl -i -pe 's/collection1/ucjeps-metadata/' ucjeps/metadata/core.properties
-perl -i -pe 's/collection1/cinefiles-metadata/' cinefiles/metadata/core.properties
-perl -i -pe 's/collection1/bampfa-metadata/' bampfa/metadata/core.properties
 
-#perl -i -pe 's/example-schemaless/pahma-metadata/' pahma/metadata/conf/schema.xml
-#perl -i -pe 's/example-schemaless/botgarden-metadata/' botgarden/metadata/conf/schema.xml
+#perl -i -pe 's/example-schemaless/pahma-public/' pahma/public/conf/schema.xml
+#perl -i -pe 's/example-schemaless/botgarden-public/' botgarden/public/conf/schema.xml
 #perl -i -pe 's/example-schemaless/botgarden-propagations/' botgarden/propagations/conf/schema.xml
-#perl -i -pe 's/example-schemaless/ucjeps-metadata/' ucjeps/metadata/conf/schema.xml
-#perl -i -pe 's/example-schemaless/cinefiles-metadata/' cinefiles/metadata/conf/schema.xml
-#perl -i -pe 's/example-schemaless/bampfa-metadata/' bampfa/metadata/conf/schema.xml
+#perl -i -pe 's/example-schemaless/ucjeps-public/' ucjeps/public/conf/schema.xml
+#perl -i -pe 's/example-schemaless/cinefiles-public/' cinefiles/public/conf/schema.xml
+#perl -i -pe 's/example-schemaless/bampfa-public/' bampfa/public/conf/schema.xml
 
-cp $TOOLS/datasources/ucb/multicore/botgarden/metadata/conf/solrconfig.xml botgarden/metadata/conf/
-cp $TOOLS/datasources/ucb/multicore/cinefiles/metadata/conf/solrconfig.xml cinefiles/metadata/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa/metadata/conf/solrconfig.xml bampfa/metadata/conf/
-cp $TOOLS/datasources/ucb/multicore/pahma/metadata/conf/solrconfig.xml pahma/metadata/conf/
+cp $TOOLS/datasources/ucb/multicore/botgarden.public.solrconfig.xml botgarden/public/conf/
+cp $TOOLS/datasources/ucb/multicore/cinefiles.public.solrconfig.xml cinefiles/public/conf/
+cp $TOOLS/datasources/ucb/multicore/bampfa.public.solrconfig.xml bampfa/public/conf/
+cp $TOOLS/datasources/ucb/multicore/pahma.public.solrconfig.xml pahma/public/conf/
+cp $TOOLS/datasources/ucb/multicore/ucjeps.public.solrconfig.xml ucjeps/public/conf/
+
 cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/solrconfig.xml botgarden/propagations/conf/
-cp $TOOLS/datasources/ucb/multicore/ucjeps/metadata/conf/solrconfig.xml ucjeps/metadata/conf/
 
-cp $TOOLS/datasources/ucb/multicore/botgarden/metadata/conf/schema.xml botgarden/metadata/conf/
-cp $TOOLS/datasources/ucb/multicore/cinefiles/metadata/conf/schema.xml cinefiles/metadata/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa/metadata/conf/schema.xml bampfa/metadata/conf/
-cp $TOOLS/datasources/ucb/multicore/pahma/metadata/conf/schema.xml pahma/metadata/conf/
+cp $TOOLS/datasources/ucb/multicore/botgarden.internal.schema.xml botgarden/internal/conf/
+cp $TOOLS/datasources/ucb/multicore/cinefiles.internal.schema.xml cinefiles/internal/conf/
+cp $TOOLS/datasources/ucb/multicore/bampfa.internal.schema.xml bampfa/internal/conf/
+cp $TOOLS/datasources/ucb/multicore/pahma.internal.schema.xml pahma/internal/conf/
+cp $TOOLS/datasources/ucb/multicore/ucjeps.internal.schema.xml ucjeps/internal/conf/
+
 cp $TOOLS/datasources/ucb/multicore/botgarden/propagations/conf/schema.xml botgarden/propagations/conf/
-cp $TOOLS/datasources/ucb/multicore/ucjeps/metadata/conf/schema.xml ucjeps/metadata/conf/
 
-# these two cores are special: they use the solr "managed-schema"
+# these cores are special: they use the solr "managed-schema"
 cp -r ../example-schemaless/solr/collection1 pahma/media
 cp -r ../example-schemaless/solr/collection1 bampfa/media
+cp -r ../example-schemaless/solr/collection1 cinefiles/media
+cp -r ../example-schemaless/solr/collection1 ucjeps/media
+cp -r ../example-schemaless/solr/collection1 botgarden/media
 perl -i -pe 's/collection1/pahma-media/' pahma/media/core.properties
 perl -i -pe 's/collection1/bampfa-media/' bampfa/media/core.properties
-cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/solrconfig.xml pahma/media/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/solrconfig.xml bampfa/media/conf/
-cp $TOOLS/datasources/ucb/multicore/pahma/media/conf/schema.xml pahma/media/conf/
-cp $TOOLS/datasources/ucb/multicore/bampfa/media/conf/schema.xml bampfa/media/conf/
+perl -i -pe 's/collection1/cinefiles-media/' cinefiles/media/core.properties
+perl -i -pe 's/collection1/ucjeps-media/' ucjeps/media/core.properties
+perl -i -pe 's/collection1/botgarden-media/' botgarden/media/core.properties
+cp $TOOLS/datasources/ucb/multicore/pahma.media.solrconfig.xml pahma/media/conf/
+cp $TOOLS/datasources/ucb/multicore/bampfa.media.solrconfig.xml bampfa/media/conf/
+cp $TOOLS/datasources/ucb/multicore/cinefiles.media.solrconfig.xml cinefiles/media/conf/
+cp $TOOLS/datasources/ucb/multicore/ucjeps.media.solrconfig.xml ucjeps/media/conf/
+cp $TOOLS/datasources/ucb/multicore/botgarden.media.solrconfig.xml botgarden/media/conf/
 
 echo "*** Multicore solr4 installed for UCB deployments! ****"
 echo "You can now start solr4. A good way to do this for development purposes is to use"
