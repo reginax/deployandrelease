@@ -80,7 +80,7 @@ Suggestions for "local installs", e.g. on your Macbook
 # 2. configure the Solr multicore deployment using configureMultiCoreSolr.sh
 #
 # NB: takes 3 arguments! Assumes you have cloned the Tools repo...use the full path please
-#
+# 
 # cd ~
 # git clone https://github.com/cspace-deployment/Tools
 # 
@@ -88,6 +88,11 @@ Suggestions for "local installs", e.g. on your Macbook
 # which unpacks solr, makes the UCB cores in multicore, copies the customized files needed
 #
 # ~/deployandrelease/configureMultiCoreSolr.sh /User/myhomedir/Tools solr4 4.10.4
+#
+# NB: if solr is *already* running and you did not kill it before reconfiguring the cores, you'll need to 
+#     kill it in order to start it again so it will see the new cores.
+# aux | grep solr 
+# kill <thatsolrprocess>
 #
 # 3. Install the startup script and start solr (this script puts the process into the background)
 #
@@ -103,8 +108,12 @@ Suggestions for "local installs", e.g. on your Macbook
 # cd ~/4solr
 #
 # ~/deployandrelease/scp4solr.sh
+# 
 #
-# 4 execute the script to load all the .csv dump files (take 15 mins or so...some biggish datasources!)
+# 5. execute the script to load all the .csv dump files (take 15 mins or so...some biggish datasources!)
+#
+# NB: until the new .csv files become available on cspace-dev, rename the "old" files, e.g. 
+# 4solr.ucjeps.metadata.csv, to 4solr.ucjeps.public.csv so the new script can load it into solr core ucjeps-public
 #
 # ~/deployandrelease/loadAllDatasources.sh
 #
