@@ -66,6 +66,7 @@ cp -r ../example-schemaless/solr/collection1 ucjeps/internal
 cp -r ../example-schemaless/solr/collection1 cinefiles/internal
 cp -r ../example-schemaless/solr/collection1 bampfa/internal
 
+cp -r ../example-schemaless/solr/collection1 pahma/locations
 cp -r ../example-schemaless/solr/collection1 botgarden/propagations
 
 cp $TOOLS/datasources/ucb/multicore/solr.xml .
@@ -82,6 +83,7 @@ perl -i -pe 's/collection1/ucjeps-internal/' ucjeps/internal/core.properties
 perl -i -pe 's/collection1/cinefiles-internal/' cinefiles/internal/core.properties
 perl -i -pe 's/collection1/bampfa-internal/' bampfa/internal/core.properties
 
+perl -i -pe 's/collection1/pahma-locations/' pahma/locations/core.properties
 perl -i -pe 's/collection1/botgarden-propations/' botgarden/propagations/core.properties
 
 #perl -i -pe 's/example-schemaless/pahma-public/' pahma/public/conf/schema.xml
@@ -103,8 +105,6 @@ cp $TOOLS/datasources/ucb/multicore/bampfa.public.schema.xml bampfa/public/conf/
 cp $TOOLS/datasources/ucb/multicore/pahma.public.schema.xml pahma/public/conf/schema.xml
 cp $TOOLS/datasources/ucb/multicore/ucjeps.public.schema.xml ucjeps/public/conf/schema.xml
 
-cp $TOOLS/datasources/ucb/multicore/botgarden.propagations.schema.xml botgarden/propagations/conf/schema.xml
-
 cp $TOOLS/datasources/ucb/multicore/botgarden.internal.solrconfig.xml botgarden/internal/conf/solrconfig.xml
 cp $TOOLS/datasources/ucb/multicore/cinefiles.internal.solrconfig.xml cinefiles/internal/conf/solrconfig.xml
 cp $TOOLS/datasources/ucb/multicore/bampfa.internal.solrconfig.xml bampfa/internal/conf/solrconfig.xml
@@ -117,6 +117,10 @@ cp $TOOLS/datasources/ucb/multicore/bampfa.internal.schema.xml bampfa/internal/c
 cp $TOOLS/datasources/ucb/multicore/pahma.internal.schema.xml pahma/internal/conf/schema.xml
 cp $TOOLS/datasources/ucb/multicore/ucjeps.internal.schema.xml ucjeps/internal/conf/schema.xml
 
+cp $TOOLS/datasources/ucb/multicore/pahma.locations.schema.xml pahma/locations/conf/schema.xml
+cp $TOOLS/datasources/ucb/multicore/botgarden.propagations.schema.xml botgarden/propagations/conf/schema.xml
+
+cp $TOOLS/datasources/ucb/multicore/pahma.locations.solrconfig.xml pahma/locations/conf/solrconfig.xml
 cp $TOOLS/datasources/ucb/multicore/botgarden.propagations.solrconfig.xml botgarden/propagations/conf/solrconfig.xml
 
 # these cores are special: they use the solr "managed-schema"
