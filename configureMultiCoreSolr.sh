@@ -84,7 +84,7 @@ perl -i -pe 's/collection1/cinefiles-internal/' cinefiles/internal/core.properti
 perl -i -pe 's/collection1/bampfa-internal/' bampfa/internal/core.properties
 
 perl -i -pe 's/collection1/pahma-locations/' pahma/locations/core.properties
-perl -i -pe 's/collection1/botgarden-propations/' botgarden/propagations/core.properties
+perl -i -pe 's/collection1/botgarden-propagations/' botgarden/propagations/core.properties
 
 #perl -i -pe 's/example-schemaless/pahma-public/' pahma/public/conf/schema.xml
 #perl -i -pe 's/example-schemaless/botgarden-public/' botgarden/public/conf/schema.xml
