@@ -32,6 +32,7 @@ while read i; do
 done < <(git tag -l)
 
 if [ "$found_tag" -eq "1" ]; then
+    git pull -v
     git checkout tags/$2
     python manage.py syncdb --noinput
     python manage.py collectstatic --noinput
