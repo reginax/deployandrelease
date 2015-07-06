@@ -19,9 +19,9 @@ if [ ! -d  "/var/www/$1" ]; then
 fi
 
 cd /var/www/$1/
-cd ~/PyCharmProjects/$1_project/
-git stash
-git pull origin $2 -v
+# cd ~/PyCharmProjects/$1_project/
+# git stash
+# git pull origin $2 -v
 
 found_tag=0
 while read i; do
@@ -33,12 +33,13 @@ done < <(git tag -l)
 
 if [ "$found_tag" -eq "1" ]; then
     git checkout tags/$2
+    python manage.py syncdb --noinput
     python manage.py collectstatic --noinput
 else 
     echo "================================================================================================="
     echo "Tag $2 does not exist"
     echo "================================================================================================="
 fi
-git stash apply
+# git stash apply
 echo
 echo "don't forget to restart Apache!"
