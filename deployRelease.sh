@@ -22,6 +22,10 @@ cd /var/www/$1/
 # cd ~/PyCharmProjects/$1_project/
 # git stash
 # git pull origin $2 -v
+git stash
+git checkout origin/master
+git fetch --tags
+git merge origin
 
 found_tag=0
 while read i; do
@@ -32,7 +36,6 @@ while read i; do
 done < <(git tag -l)
 
 if [ "$found_tag" -eq "1" ]; then
-    git pull -v
     git checkout tags/$2
     python manage.py syncdb --noinput
     python manage.py collectstatic --noinput
