@@ -20,12 +20,14 @@ if [ ! -d  "/var/www/$1" ]; then
 fi
 
 cd /var/www/$1/
+# we stash just in case, but we never apply
 git stash
 git checkout $2/$3
 git pull $2 $3 -v
 git branch
 python manage.py syncdb
 python manage.py collectstatic --noinput
+python manage.py loaddata fixtures/*
 #git stash apply
 echo
 echo "don't forget to restart Apache!"
