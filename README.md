@@ -91,7 +91,7 @@ Suggestions for "local installs", e.g. on your Macbook
 #
 # NB: if solr is *already* running and you did not kill it before reconfiguring the cores, you'll need to 
 #     kill it in order to start it again so it will see the new cores.
-# aux | grep solr 
+# ps aux | grep solr 
 # kill <thatsolrprocess>
 #
 # 3. Install the startup script and start solr (this script puts the process into the background)
@@ -108,7 +108,9 @@ Suggestions for "local installs", e.g. on your Macbook
 # cd ~/4solr
 #
 # ~/deployandrelease/scp4solr.sh
-# 
+# NB: if you get 'Permission denied', try the following:
+# scp <your-dev-login>@cspace-dev.cspace.berkeley.edu:/tmp/4solr*.gz . 
+# gunzip 4solr*.gz
 #
 # 5. execute the script to load all the .csv dump files (take 15 mins or so...some biggish datasources!)
 #
